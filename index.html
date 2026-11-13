@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#111111">
+<link rel="manifest" href="manifest.json">
+<title>Daily Motivation</title>
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+main {
+  width: 88%;
+  max-width: 450px;
+}
+h1 { color: #e7bd65; }
+.card {
+  background: #222;
+  border: 1px solid #e7bd65;
+  border-radius: 20px;
+  padding: 35px 20px;
+  margin: 25px 0;
+}
+#quote {
+  font-family: Georgia, serif;
+  font-size: 28px;
+  line-height: 1.5;
+}
+button {
+  background: #e7bd65;
+  color: #111;
+  border: none;
+  border-radius: 12px;
+  padding: 15px;
+  margin: 5px;
+  font-size: 15px;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+<main>
+<h1>DAILY MOTIVATION</h1>
+<div class="card">
+  <div id="quote">Believe in yourself. You are stronger than you think.</div>
+  <p id="author">Daily Reminder</p>
+</div>
+<button onclick="nextQuote()">Next Quote</button>
+<button onclick="shareQuote()">Share Quote</button>
+</main>
+
+<script>
+const quotes = [
+"Believe in yourself. You are stronger than you think.",
+"Your future is created by what you do today.",
+"Dream big. Start small. Act now.",
+"Never give up on your dreams.",
+"Success begins with discipline.",
+"Every day is a new opportunity.",
+"Focus on progress, not perfection.",
+"Your only limit is your mind.",
+"Work hard and stay humble.",
+"Make today count."
+];
+
+function nextQuote() {
+  let i = Math.floor(Math.random() * quotes.length);
+  document.getElementById("quote").textContent = quotes[i];
+}
+
+function shareQuote() {
+  let q = document.getElementById("quote").textContent;
+  if (navigator.share) {
+    navigator.share({title:"Daily Motivation", text:q});
+  } else {
+    navigator.clipboard.writeText(q);
+    alert("Quote copied!");
+  }
+}
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./sw.js");
+}
+</script>
+</body>
+</html>
