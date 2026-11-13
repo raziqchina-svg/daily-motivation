@@ -1,8 +1,8 @@
 [{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target": {
-    "namespace": "android_app",
-    "package_name": "YOUR_PACKAGE_NAME",
-    "sha256_cert_fingerprints": ["YOUR_SHA256_FINGERPRINT"]
-  }
-}]
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "io.github.raziqchina_svg.twa",
+        "sha256_cert_fingerprints": ["F0:A6:FD:4C:A4:17:F9:06:21:CB:4B:A0:81:6A:35:9B:CE:B5:F3:B0:5B:65:FB:49:D6:1E:C2:64:5C:42:32:28"]
+      }
+    }]
