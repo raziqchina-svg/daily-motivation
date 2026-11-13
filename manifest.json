@@ -1,11 +1,19 @@
-
 {
-  "name": "Daily Motivation",
-  "short_name": "Motivation",
-  "description": "Daily inspirational quotes",
+  "name": "انگیزه روزانه",
+  "short_name": "انگیزه",
+  "description": "اپلیکیشن دریافت جملات انگیزشی روزانه",
   "start_url": "./index.html",
-  "scope": "./",
   "display": "standalone",
-  "background_color": "#111111",
-  "theme_color": "#111111"
+  "background_color": "#1e3c72",
+  "theme_color": "#1e3c72",
+  "dir": "rtl",
+  "lang": "fa",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3233/3233112.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
 }
