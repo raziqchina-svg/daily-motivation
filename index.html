@@ -1,96 +1,106 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#111111">
-<link rel="manifest" href="manifest.json">
-<title>Daily Motivation</title>
-<style>
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #111;
-  color: white;
-  font-family: Arial, sans-serif;
-  text-align: center;
-}
-main {
-  width: 88%;
-  max-width: 450px;
-}
-h1 { color: #e7bd65; }
-.card {
-  background: #222;
-  border: 1px solid #e7bd65;
-  border-radius: 20px;
-  padding: 35px 20px;
-  margin: 25px 0;
-}
-#quote {
-  font-family: Georgia, serif;
-  font-size: 28px;
-  line-height: 1.5;
-}
-button {
-  background: #e7bd65;
-  color: #111;
-  border: none;
-  border-radius: 12px;
-  padding: 15px;
-  margin: 5px;
-  font-size: 15px;
-  font-weight: bold;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>انگیزه روزانه | Daily Motivation</title>
+    
+    <!-- اتصال به فایل PWA (بعدا کاملش می‌کنیم) -->
+    <link rel="manifest" href="manifest.json">
+    
+    <style>
+        /* استایل‌های کلی */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* کارت اصلی */
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px 20px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        /* محل نمایش جمله انگیزشی */
+        #quote-text {
+            font-size: 20px;
+            line-height: 1.6;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease;
+        }
+
+        /* دکمه تغییر جمله */
+        button {
+            background: #ff7e5f;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 30px;
+            box-shadow: 0 4px 15px rgba(255, 126, 95, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        /* فوتر */
+        footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 12px;
+            opacity: 0.6;
+        }
+    </style>
 </head>
 <body>
-<main>
-<h1>DAILY MOTIVATION</h1>
-<div class="card">
-  <div id="quote">Believe in yourself. You are stronger than you think.</div>
-  <p id="author">Daily Reminder</p>
-</div>
-<button onclick="nextQuote()">Next Quote</button>
-<button onclick="shareQuote()">Share Quote</button>
-</main>
 
-<script>
-const quotes = [
-"Believe in yourself. You are stronger than you think.",
-"Your future is created by what you do today.",
-"Dream big. Start small. Act now.",
-"Never give up on your dreams.",
-"Success begins with discipline.",
-"Every day is a new opportunity.",
-"Focus on progress, not perfection.",
-"Your only limit is your mind.",
-"Work hard and stay humble.",
-"Make today count."
-];
+    <div class="card">
+        <h1>✨ انگیزه روزانه ✨</h1>
+        
+        <!-- متن جمله اینجا قرار می‌گیرد -->
+        <p id="quote-text">در حال بارگذاری...</p>
+        
+        <!-- دکمه تعویض -->
+        <button onclick="getNewQuote()">یک جمله دیگر!</button>
+    </div>
 
-function nextQuote() {
-  let i = Math.floor(Math.random() * quotes.length);
-  document.getElementById("quote").textContent = quotes[i];
-}
+    <footer>ساخته شده با ❤️ برای رشد شما</footer>
 
-function shareQuote() {
-  let q = document.getElementById("quote").textContent;
-  if (navigator.share) {
-    navigator.share({title:"Daily Motivation", text:q});
-  } else {
-    navigator.clipboard.writeText(q);
-    alert("Quote copied!");
-  }
-}
-
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("./sw.js");
-}
-</script>
 </body>
 </html>
