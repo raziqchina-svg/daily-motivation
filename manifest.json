@@ -1,0 +1,11 @@
+
+{
+  "name": "Daily Motivation",
+  "short_name": "Motivation",
+  "description": "Daily inspirational quotes",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#111111",
+  "theme_color": "#111111"
+}
