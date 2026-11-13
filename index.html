@@ -85,7 +85,65 @@
             bottom: 20px;
             font-size: 12px;
             opacity: 0.6;
-        }
+        }/* استایل دکمه تغییر تم */
+.theme-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    font-size: 24px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.theme-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* تعریف حالت روشن به عنوان پیش‌فرض */
+:root {
+    --bg-gradient: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    --text-color: #ffffff;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --card-border: rgba(255, 255, 255, 0.2);
+    --btn-secondary-bg: rgba(255, 255, 255, 0.2);
+}
+
+/* تعریف حالت تاریک (شب) */
+body.dark-mode {
+    --bg-gradient: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    --text-color: #e0e0e0;
+    --card-bg: rgba(0, 0, 0, 0.4);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --btn-secondary-bg: rgba(255, 255, 255, 0.1);
+}
+
+/* اعمال متغیرها به کل صفحه */
+body {
+    background: var(--bg-gradient);
+    color: var(--text-color);
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    transition: background 0.5s ease, border 0.5s ease;
+}
+
+.btn-secondary {
+    background: var(--btn-secondary-bg);
+}
     </style>
 </head>
 <body>
